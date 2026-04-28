@@ -1,0 +1,64 @@
+{
+ "creation": "2020-08-14 13:01:32.180390",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item_code",
+  "cost_ratio",
+  "qty_ratio",
+  "qty",
+  "batch_yield"
+ ],
+ "fields": [
+  {
+   "columns": 2,
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item Code",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Qty",
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "cost_ratio",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "Cost Ratio"
+  },
+  {
+   "columns": 2,
+   "fieldname": "qty_ratio",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "Qty Ratio"
+  },
+  {
+   "columns": 2,
+   "fieldname": "batch_yield",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "Batch Yield"
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-08-14 14:08:20.532055",
+ "modified_by": "Administrator",
+ "module": "Chemical",
+ "name": "BOM Multiple Finish Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

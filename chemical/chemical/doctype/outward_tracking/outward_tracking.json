@@ -1,0 +1,450 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2018-02-14 17:27:29.717121",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "type",
+  "courier_type",
+  "awb_no",
+  "is_billed",
+  "journal_entry",
+  "company",
+  "send_mail",
+  "feedback_recieved",
+  "currency",
+  "columnbreak1",
+  "date",
+  "address_and_contact",
+  "link_to",
+  "party",
+  "address_link",
+  "address",
+  "cb",
+  "contact_person",
+  "contact_display",
+  "contact_mobile",
+  "contact_email",
+  "party_name",
+  "company_address",
+  "sb",
+  "customer",
+  "supplier",
+  "lead",
+  "section_break1",
+  "remarks",
+  "courier_items",
+  "has_sample",
+  "sample_items",
+  "total_qty",
+  "total_amount",
+  "sectionbreak2",
+  "courier_company",
+  "weight",
+  "courier_delivered_by",
+  "tracking_status",
+  "courier_delivery_date_and_time",
+  "column_break2",
+  "docket_no",
+  "tracking_site",
+  "estimated_charges",
+  "actual_chargers",
+  "signed_by",
+  "amended_from",
+  "place_of_precarrier",
+  "final_destination",
+  "place_of_origin_of_goods"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "OUW-\nSMP-1819-",
+   "reqd": 1
+  },
+  {
+   "default": "OUTWARD",
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Type",
+   "options": "\nINWARD\nOUTWARD",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "courier_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Courier Type",
+   "options": "\nDomestic\nInternational",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.courier_type == \"International\"",
+   "fieldname": "awb_no",
+   "fieldtype": "Data",
+   "label": "AWB No"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "is_billed",
+   "fieldtype": "Check",
+   "label": "Is Billed"
+  },
+  {
+   "allow_on_submit": 1,
+   "depends_on": "eval:doc.is_billed==1",
+   "fieldname": "journal_entry",
+   "fieldtype": "Link",
+   "label": "Journal Entry",
+   "options": "Journal Entry"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Company",
+   "options": "Company",
+   "remember_last_selected_value": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "send_mail",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Send Mail"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "feedback_recieved",
+   "fieldtype": "Check",
+   "label": "Feedback Recieved"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "columnbreak1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "address_and_contact",
+   "fieldtype": "Section Break",
+   "label": "Address and Contact"
+  },
+  {
+   "fieldname": "link_to",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Link To",
+   "options": "\nLead\nCustomer\nSupplier",
+   "reqd": 1
+  },
+  {
+   "fieldname": "party",
+   "fieldtype": "Dynamic Link",
+   "label": "Party",
+   "options": "link_to",
+   "reqd": 1
+  },
+  {
+   "fieldname": "address_link",
+   "fieldtype": "Link",
+   "label": "Address Link",
+   "options": "Address"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Small Text",
+   "label": "Address",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "contact_person",
+   "fieldtype": "Link",
+   "label": "Contact Person",
+   "options": "Contact"
+  },
+  {
+   "fetch_from": "contact_person.first_name",
+   "fieldname": "contact_display",
+   "fieldtype": "Data",
+   "label": "Contact",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "contact_person.mobile_no",
+   "fieldname": "contact_mobile",
+   "fieldtype": "Data",
+   "label": "Mobile No",
+   "read_only": 1
+  },
+  {
+   "fieldname": "contact_email",
+   "fieldtype": "Data",
+   "label": "Contact Email",
+   "options": "Email",
+   "read_only": 1
+  },
+  {
+   "fieldname": "party_name",
+   "fieldtype": "Data",
+   "label": "Party Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "company_address",
+   "fieldtype": "Link",
+   "label": "Exporter Address",
+   "options": "Address",
+   "remember_last_selected_value": 1
+  },
+  {
+   "fieldname": "sb",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.link_to == \"Customer\"",
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.link_to == \"Supplier\"",
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.link_to == \"Lead\"",
+   "fieldname": "lead",
+   "fieldtype": "Link",
+   "label": "Lead",
+   "options": "Lead",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break1",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Data",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "courier_items",
+   "fieldtype": "Table",
+   "label": "Courier Items",
+   "options": "Courier Item List"
+  },
+  {
+   "default": "1",
+   "fieldname": "has_sample",
+   "fieldtype": "Check",
+   "label": "Has Sample"
+  },
+  {
+   "depends_on": "eval: doc.has_sample == 1",
+   "fieldname": "sample_items",
+   "fieldtype": "Table",
+   "label": "Sample Items",
+   "options": "Sample List"
+  },
+  {
+   "fieldname": "total_qty",
+   "fieldtype": "Float",
+   "label": "Total Qty",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval: doc.type == 'OUTWARD'",
+   "fieldname": "sectionbreak2",
+   "fieldtype": "Section Break",
+   "label": "Outward Details"
+  },
+  {
+   "depends_on": "eval:doc.type == 'OUTWARD'",
+   "fieldname": "courier_company",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Courier Company",
+   "options": "Courier Agency"
+  },
+  {
+   "depends_on": "eval:doc.type == 'OUTWARD'",
+   "fieldname": "weight",
+   "fieldtype": "Data",
+   "label": "Weight (In Grams)"
+  },
+  {
+   "fieldname": "courier_delivered_by",
+   "fieldtype": "Data",
+   "label": "Courier Delivered By"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "On the way",
+   "fieldname": "tracking_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Tracking Status",
+   "options": "\nOn the way\nDelivered"
+  },
+  {
+   "default": "Today",
+   "fieldname": "courier_delivery_date_and_time",
+   "fieldtype": "Datetime",
+   "label": "Courier Delivery Date and Time"
+  },
+  {
+   "fieldname": "column_break2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "docket_no",
+   "fieldtype": "Data",
+   "label": "Docket No"
+  },
+  {
+   "fieldname": "tracking_site",
+   "fieldtype": "Data",
+   "label": "Tracking Site"
+  },
+  {
+   "fieldname": "estimated_charges",
+   "fieldtype": "Currency",
+   "label": "Estimated Charges",
+   "options": "currency"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "actual_chargers",
+   "fieldtype": "Currency",
+   "label": "Actual Chargers",
+   "options": "currency"
+  },
+  {
+   "allow_on_submit": 1,
+   "depends_on": "eval:doc.tracking_status==\"Delivered\"",
+   "fieldname": "signed_by",
+   "fieldtype": "Data",
+   "label": "Signed By"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Outward Tracking",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "place_of_precarrier",
+   "fieldtype": "Data",
+   "label": "Place of Precarrier"
+  },
+  {
+   "fieldname": "final_destination",
+   "fieldtype": "Data",
+   "label": "Final Destination"
+  },
+  {
+   "fieldname": "place_of_origin_of_goods",
+   "fieldtype": "Data",
+   "label": "Place of Origin of Goods"
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-06-25 12:09:31.599339",
+ "modified_by": "Administrator",
+ "module": "Chemical",
+ "name": "Outward Tracking",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "cancel": 1,
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Courier",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Analytics",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "cancel": 1,
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "party",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "party",
+ "track_changes": 1
+}

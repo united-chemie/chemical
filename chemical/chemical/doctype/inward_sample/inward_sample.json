@@ -1,0 +1,276 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "naming_series:",
+ "creation": "2018-02-27 15:20:26.278941",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "date",
+  "link_to",
+  "party",
+  "outward_reference",
+  "quality_inspection",
+  "column_break_5",
+  "ref_no",
+  "company",
+  "item_code",
+  "item_name",
+  "party_alias",
+  "party_name",
+  "remarks",
+  "outward_ref_no",
+  "section_break_16",
+  "item_price",
+  "price_date",
+  "update_price",
+  "column_break_19",
+  "currency",
+  "price_list",
+  "amended_from",
+  "fiscal"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "INW-\nTest1-",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "default": "Supplier",
+   "fieldname": "link_to",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Link To",
+   "options": "\nLead\nCustomer\nSupplier",
+   "reqd": 1
+  },
+  {
+   "fieldname": "party",
+   "fieldtype": "Dynamic Link",
+   "in_list_view": 1,
+   "label": "Party",
+   "options": "link_to",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.link_to==\"Supplier\"",
+   "fieldname": "outward_reference",
+   "fieldtype": "Link",
+   "label": "Outward Reference",
+   "options": "Outward Sample"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ref_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Ref No",
+   "reqd": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "label": "Item Code",
+   "mandatory_depends_on": "eval:doc.link_to==\"Supplier\"",
+   "options": "Item"
+  },
+  {
+   "fetch_from": "item_code.item_name",
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Item Name"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "party_alias",
+   "fieldtype": "Data",
+   "label": "Party Alias",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "party_name",
+   "fieldtype": "Data",
+   "in_standard_filter": 1,
+   "label": "Party Name",
+   "permlevel": 2,
+   "read_only": 1
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Data",
+   "label": "Remarks"
+  },
+  {
+   "allow_on_submit": 1,
+   "fetch_from": "outward_reference.ref_no",
+   "fieldname": "outward_ref_no",
+   "fieldtype": "Data",
+   "label": "Outward Ref No",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.link_to==\"Supplier\"",
+   "fieldname": "section_break_16",
+   "fieldtype": "Section Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "item_price",
+   "fieldtype": "Currency",
+   "label": "Item Price",
+   "options": "currency"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "price_date",
+   "fieldtype": "Date",
+   "label": "Price Date"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "update_price",
+   "fieldtype": "Button",
+   "label": "Update Price",
+   "options": "onclick_update_price"
+  },
+  {
+   "fieldname": "column_break_19",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "price_list",
+   "fieldtype": "Link",
+   "label": "Price List",
+   "options": "Price List"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Inward Sample",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "fiscal",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Fiscal",
+   "read_only": 1
+  },
+  {
+   "fieldname": "quality_inspection",
+   "fieldtype": "Data",
+   "label": "Quality Inspection",
+   "read_only": 1
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-08-02 17:08:03.694206",
+ "modified_by": "Administrator",
+ "module": "Chemical",
+ "name": "Inward Sample",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Purchase User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Analytics",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "party_alias,ref_no",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "party",
+ "track_changes": 1
+}

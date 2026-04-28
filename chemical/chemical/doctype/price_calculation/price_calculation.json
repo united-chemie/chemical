@@ -1,0 +1,201 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2018-05-29 14:47:50.294390",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "ref_no",
+  "date",
+  "product_name",
+  "link_to",
+  "party",
+  "against",
+  "column_break_5",
+  "destination_1",
+  "destination",
+  "batch_yield",
+  "remarks",
+  "price_list",
+  "party_name",
+  "section_break_9",
+  "ball_mill_ref",
+  "get_details",
+  "details",
+  "section_break_19",
+  "total_qty",
+  "total_amount",
+  "column_break_21",
+  "per_unit_price"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "OWS-"
+  },
+  {
+   "fieldname": "ref_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Ref No"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "product_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Product Name",
+   "options": "Item"
+  },
+  {
+   "default": "Customer",
+   "fieldname": "link_to",
+   "fieldtype": "Select",
+   "label": "Link To",
+   "options": "\nLead\nCustomer\nSupplier"
+  },
+  {
+   "fieldname": "party",
+   "fieldtype": "Dynamic Link",
+   "label": "Party",
+   "options": "link_to"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "against",
+   "fieldtype": "Link",
+   "label": "Against",
+   "options": "Inward Sample"
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "destination_1",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Destination",
+   "options": "Territory"
+  },
+  {
+   "fieldname": "destination",
+   "fieldtype": "Data",
+   "label": "Destination",
+   "read_only": 1
+  },
+  {
+   "fieldname": "batch_yield",
+   "fieldtype": "Float",
+   "label": "Yield"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Data",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "price_list",
+   "fieldtype": "Link",
+   "label": "Price List",
+   "options": "Price List"
+  },
+  {
+   "fieldname": "party_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Party Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_9",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "ball_mill_ref",
+   "fieldtype": "Link",
+   "label": "Ball Mill Data Sheet Ref",
+   "options": "Ball Mill Data Sheet"
+  },
+  {
+   "fieldname": "get_details",
+   "fieldtype": "Button",
+   "label": "Get Details",
+   "options": "get_ball_mill"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "details",
+   "fieldtype": "Table",
+   "label": "Details",
+   "options": "Outward Sample Detail"
+  },
+  {
+   "fieldname": "section_break_19",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "total_qty",
+   "fieldtype": "Float",
+   "label": "Total Qty",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount",
+   "permlevel": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_21",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "per_unit_price",
+   "fieldtype": "Currency",
+   "label": "Per unit price",
+   "permlevel": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2022-01-01 12:36:54.507795",
+ "modified_by": "Administrator",
+ "module": "Chemical",
+ "name": "Price Calculation",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "party_name,product_name",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "ref_no",
+ "track_changes": 1
+}

@@ -1,0 +1,3 @@
+from erpnext.stock.serial_batch_bundle import SerialBatchCreation
+from chemical.chemical.override.monkey_patch.serial_batch_bundle import create_batch
+SerialBatchCreation.create_batch = create_batch

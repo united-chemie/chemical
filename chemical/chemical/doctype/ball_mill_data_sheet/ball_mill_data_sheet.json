@@ -1,0 +1,357 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2018-03-14 10:51:21.244596",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "customer_name",
+  "product_name",
+  "warehouse",
+  "target_qty",
+  "column_break_4",
+  "date",
+  "posting_time",
+  "ballmill_datasheet_no",
+  "sales_order",
+  "sample_no",
+  "product_customer_name",
+  "lot_no",
+  "default_source_warehouse",
+  "company",
+  "section_break_6",
+  "items",
+  "section_break_15",
+  "total_qty",
+  "concentration",
+  "actual_qty",
+  "total_sub_loat",
+  "remarks",
+  "amount",
+  "column_break_11",
+  "handling_loss",
+  "per_unit_amount",
+  "section_break_27",
+  "ball_mill_additional_cost",
+  "section_break_35_section",
+  "packaging",
+  "section_break_34",
+  "total_packing_qty",
+  "column_break_36",
+  "2",
+  "strength",
+  "more_info_break",
+  "stock_entry",
+  "amended_from",
+  "fiscal"
+ ],
+ "fields": [
+  {
+   "default": "BMD-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "SR No",
+   "options": "BMD-.#####\nBMD-"
+  },
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Customer Name",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "product_name",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Product Name",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "warehouse",
+   "fieldtype": "Link",
+   "label": "Target Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "target_qty",
+   "fieldtype": "Float",
+   "label": "Target Qty",
+   "reqd": 1
+  },
+  {
+   "fieldname": "concentration",
+   "fieldtype": "Percent",
+   "label": "Concentration"
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "bold": 1,
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "posting_time",
+   "fieldtype": "Time",
+   "label": "Posting Time"
+  },
+  {
+   "fieldname": "ballmill_datasheet_no",
+   "fieldtype": "Data",
+   "label": "Ballmill Datasheet No",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sales_order",
+   "fieldtype": "Link",
+   "label": "Sales Order",
+   "options": "Sales Order"
+  },
+  {
+   "fieldname": "sample_no",
+   "fieldtype": "Link",
+   "label": "Sample No",
+   "options": "Outward Sample"
+  },
+  {
+   "fetch_from": "sample_no.item_name",
+   "fieldname": "product_customer_name",
+   "fieldtype": "Data",
+   "label": "Product Customer Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "sample_no.ref_no",
+   "fieldname": "lot_no",
+   "fieldtype": "Data",
+   "label": "Lot No",
+   "read_only": 1
+  },
+  {
+   "fieldname": "default_source_warehouse",
+   "fieldtype": "Link",
+   "label": "Default Source Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "section_break_6",
+   "fieldtype": "Section Break",
+   "label": "Ball Mill Items"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Ball Mill Data Sheet Item"
+  },
+  {
+   "fieldname": "section_break_15",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "total_qty",
+   "fieldtype": "Float",
+   "label": "Total Qty",
+   "read_only": 1
+  },
+  {
+   "fieldname": "actual_qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Actual Qty",
+   "reqd": 1
+  },
+  {
+   "fieldname": "total_sub_loat",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Total Sub Loat",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Ball Mill Data Sheet",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Amount",
+   "options": "currency",
+   "permlevel": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_11",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "handling_loss",
+   "fieldtype": "Float",
+   "label": "Handling loss",
+   "read_only": 1
+  },
+  {
+   "fieldname": "per_unit_amount",
+   "fieldtype": "Currency",
+   "label": "Per Unit Amount",
+   "options": "currency",
+   "permlevel": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_27",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "packaging",
+   "fieldtype": "Table",
+   "label": "Ball Mill Packaging",
+   "options": "Ball Mill Packaging"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "2",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "strength",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Strength"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "more_info_break",
+   "fieldtype": "Section Break",
+   "label": "More Info"
+  },
+  {
+   "fieldname": "stock_entry",
+   "fieldtype": "Link",
+   "label": "Stock Entry",
+   "no_copy": 1,
+   "options": "Stock Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "fiscal",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Fiscal"
+  },
+  {
+   "fieldname": "section_break_34",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "total_packing_qty",
+   "fieldtype": "Float",
+   "label": "Total Packing Qty",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_36",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "ball_mill_additional_cost",
+   "fieldtype": "Table",
+   "label": "Ball Mill Additional Cost",
+   "options": "Ball Mill Additional Cost"
+  },
+  {
+   "fieldname": "section_break_35_section",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-09-16 14:52:24.689155",
+ "modified_by": "Administrator",
+ "module": "Chemical",
+ "name": "Ball Mill Data Sheet",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manufacturing User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manufacturing Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "product_name",
+ "track_changes": 1
+}

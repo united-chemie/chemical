@@ -1,0 +1,174 @@
+{
+ "creation": "2019-03-12 14:57:30.349929",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item_code",
+  "item_name",
+  "gst_hsn_code",
+  "column_break_3",
+  "description",
+  "section_break_6",
+  "batch_no",
+  "lot_no",
+  "warehouse",
+  "batch_yield",
+  "column_break_10",
+  "packaging_material",
+  "packing_size",
+  "concentration",
+  "quantity_and_rate",
+  "received_qty",
+  "stock_uom",
+  "rate",
+  "net_amount",
+  "references",
+  "jobwork_challan",
+  "job_work_item"
+ ],
+ "fields": [
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item Code",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "label": "Item Name"
+  },
+  {
+   "fetch_from": "item_code.gst_hsn_code",
+   "fieldname": "gst_hsn_code",
+   "fieldtype": "Data",
+   "label": "HSN/SAC"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description"
+  },
+  {
+   "fieldname": "section_break_6",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "batch_no",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Batch No",
+   "options": "Batch"
+  },
+  {
+   "fetch_from": "batch_no.lot_no",
+   "fieldname": "lot_no",
+   "fieldtype": "Data",
+   "label": "Lot No"
+  },
+  {
+   "default": "Stores - EG",
+   "fieldname": "warehouse",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "batch_yield",
+   "fieldtype": "Percent",
+   "label": "Batch yield"
+  },
+  {
+   "fieldname": "column_break_10",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "packaging_material",
+   "fieldtype": "Link",
+   "label": "Packaging Material",
+   "options": "Packaging Material"
+  },
+  {
+   "fieldname": "packing_size",
+   "fieldtype": "Int",
+   "label": "Packing Size"
+  },
+  {
+   "fieldname": "concentration",
+   "fieldtype": "Percent",
+   "label": "Concentration"
+  },
+  {
+   "fieldname": "quantity_and_rate",
+   "fieldtype": "Section Break",
+   "label": "Quantity and Rate"
+  },
+  {
+   "default": "0",
+   "fieldname": "received_qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Received Qty"
+  },
+  {
+   "fieldname": "stock_uom",
+   "fieldtype": "Link",
+   "label": "Stock UOM",
+   "options": "UOM"
+  },
+  {
+   "columns": 1,
+   "fieldname": "rate",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Rate",
+   "options": "Currency",
+   "read_only": 1
+  },
+  {
+   "columns": 1,
+   "fieldname": "net_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Net Amount",
+   "options": "Company:company:default_currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "references",
+   "fieldtype": "Section Break",
+   "label": "References"
+  },
+  {
+   "fieldname": "jobwork_challan",
+   "fieldtype": "Link",
+   "label": "Jobwork Challan",
+   "options": "Jobwork Challan",
+   "read_only": 1
+  },
+  {
+   "fieldname": "job_work_item",
+   "fieldtype": "Data",
+   "label": "Job Work Item",
+   "read_only": 1
+  }
+ ],
+ "istable": 1,
+ "modified": "2020-05-06 12:41:19.713381",
+ "modified_by": "Administrator",
+ "module": "Chemical",
+ "name": "Jobwork Finish Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

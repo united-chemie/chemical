@@ -1,0 +1,408 @@
+{
+ "actions": [],
+ "allow_import": 1,
+ "autoname": "naming_series:",
+ "creation": "2019-04-09 13:44:54.044168",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "update_price",
+  "column_break_2",
+  "price_updated_on",
+  "section_break_4",
+  "naming_series",
+  "ref_no",
+  "date",
+  "product_name",
+  "item_name",
+  "company",
+  "link_to",
+  "party",
+  "against",
+  "column_break_12",
+  "status",
+  "sample_type",
+  "price_list",
+  "party_name",
+  "party_alias",
+  "batch_yield",
+  "sales_order",
+  "po_no",
+  "contact_display",
+  "remarks",
+  "currency",
+  "is_master_sample",
+  "section_break_38",
+  "master_sample",
+  "last_sample",
+  "column_break_41",
+  "last_purchase_reference",
+  "section_break_34",
+  "ball_mill_ref",
+  "details",
+  "get_details",
+  "section_break_37",
+  "total_qty",
+  "total_amount",
+  "column_break_40",
+  "per_unit_price",
+  "amended_from",
+  "fiscal"
+ ],
+ "fields": [
+  {
+   "allow_on_submit": 1,
+   "fieldname": "update_price",
+   "fieldtype": "Button",
+   "label": "Update Price"
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "Today",
+   "fieldname": "price_updated_on",
+   "fieldtype": "Date",
+   "label": "Price Updated On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "OWT/.YY./.####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "ref_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Ref No"
+  },
+  {
+   "bold": 1,
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "against.item_code",
+   "fieldname": "product_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Product Name",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "label": "Item Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Company",
+   "options": "Company",
+   "remember_last_selected_value": 1
+  },
+  {
+   "default": "Customer",
+   "fetch_from": "against.link_to",
+   "fieldname": "link_to",
+   "fieldtype": "Link",
+   "label": "Link To",
+   "options": "DocType",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "against.party",
+   "fieldname": "party",
+   "fieldtype": "Dynamic Link",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "label": "Party",
+   "options": "link_to",
+   "reqd": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "against",
+   "fieldtype": "Link",
+   "label": "Against",
+   "options": "Inward Sample"
+  },
+  {
+   "fieldname": "column_break_12",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "batch_yield",
+   "fieldtype": "Float",
+   "hidden": 1,
+   "label": "Yield"
+  },
+  {
+   "fieldname": "price_list",
+   "fieldtype": "Link",
+   "label": "Price List",
+   "options": "Price List"
+  },
+  {
+   "fieldname": "party_name",
+   "fieldtype": "Data",
+   "label": "Party Name",
+   "permlevel": 2,
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "sales_order",
+   "fieldtype": "Link",
+   "label": "Sales Order",
+   "options": "Sales Order",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "sales_order.po_no",
+   "fieldname": "po_no",
+   "fieldtype": "Data",
+   "label": "PO No",
+   "read_only": 1
+  },
+  {
+   "fieldname": "contact_display",
+   "fieldtype": "Small Text",
+   "label": "Contact Display",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "is_master_sample",
+   "fieldtype": "Check",
+   "label": "Is Master Sample"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "sample_type",
+   "fieldtype": "Select",
+   "label": "Sample Type",
+   "options": "PSS\nDevelopment\nPost Shipment Sample",
+   "reqd": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Pending\nApproved\nFail",
+   "reqd": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Currency",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "section_break_38",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "master_sample",
+   "fieldtype": "Link",
+   "label": "Master Sample",
+   "options": "Outward Sample",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_sample",
+   "fieldtype": "Link",
+   "label": "Last Sample",
+   "options": "Outward Sample",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_41",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_purchase_reference",
+   "fieldtype": "Link",
+   "label": "Last Purchase Reference",
+   "options": "Ball Mill Data Sheet",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_34",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "ball_mill_ref",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Ball Mill Data Sheet Ref",
+   "options": "Ball Mill Data Sheet"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "details",
+   "fieldtype": "Table",
+   "label": "Details",
+   "options": "Outward Sample Detail"
+  },
+  {
+   "fieldname": "get_details",
+   "fieldtype": "Button",
+   "label": "Get Details",
+   "options": "get_ball_mill"
+  },
+  {
+   "fieldname": "section_break_37",
+   "fieldtype": "Section Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "total_qty",
+   "fieldtype": "Float",
+   "label": "Total Qty",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "hidden": 1,
+   "label": "Total Amount",
+   "options": "currency",
+   "permlevel": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_40",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "per_unit_price",
+   "fieldtype": "Currency",
+   "label": "Per unit price",
+   "options": "currency",
+   "permlevel": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Outward Sample",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "fiscal",
+   "fieldtype": "Small Text",
+   "hidden": 1,
+   "label": "Fiscal"
+  },
+  {
+   "fieldname": "party_alias",
+   "fieldtype": "Data",
+   "label": "Party Alias",
+   "read_only": 1
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-08-12 10:40:37.328221",
+ "modified_by": "Administrator",
+ "module": "Chemical",
+ "name": "Outward Sample",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "cancel": 1,
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Sales User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "cancel": 1,
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Purchase User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Analytics",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "ref_no",
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "states": [],
+ "title_field": "ref_no",
+ "track_changes": 1
+}

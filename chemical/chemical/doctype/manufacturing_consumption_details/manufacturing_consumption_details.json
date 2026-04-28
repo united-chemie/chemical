@@ -1,0 +1,86 @@
+{
+    "creation": "2021-06-16 10:24:10.417051",
+    "doctype": "DocType",
+    "editable_grid": 1,
+    "engine": "InnoDB",
+    "field_order": [
+     "work_order",
+     "work_order_qty",
+     "s_warehouse",
+     "item_code",
+     "column_break_3",
+     "required_qty",
+     "quantity",
+     "batch_no"
+    ],
+    "fields": [
+     {
+      "columns": 1,
+      "fieldname": "work_order",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Work Order",
+      "options": "Work Order"
+     },
+     {
+      "columns": 1,
+      "fieldname": "quantity",
+      "fieldtype": "Float",
+      "in_list_view": 1,
+      "label": "Quantity"
+     },
+     {
+      "fieldname": "item_code",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Item Code",
+      "options": "Item"
+     },
+     {
+      "fieldname": "batch_no",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Batch No",
+      "options": "Batch"
+     },
+     {
+      "columns": 1,
+      "fetch_from": "work_order.qty",
+      "fieldname": "required_qty",
+      "fieldtype": "Float",
+      "in_list_view": 1,
+      "label": "Required Qty"
+     },
+     {
+      "fieldname": "column_break_3",
+      "fieldtype": "Column Break"
+     },
+     {
+      "fieldname": "s_warehouse",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Source Warehouse",
+      "options": "Warehouse"
+     },
+     {
+      "columns": 1,
+      "fetch_from": "work_order.qty",
+      "fetch_if_empty": 1,
+      "fieldname": "work_order_qty",
+      "fieldtype": "Float",
+      "in_list_view": 1,
+      "label": "Work Order Qty"
+     }
+    ],
+    "istable": 1,
+    "modified": "2021-07-14 13:05:08.757518",
+    "modified_by": "Administrator",
+    "module": "Chemical",
+    "name": "Manufacturing Consumption Details",
+    "owner": "Administrator",
+    "permissions": [],
+    "quick_entry": 1,
+    "sort_field": "modified",
+    "sort_order": "DESC",
+    "track_changes": 1
+   }

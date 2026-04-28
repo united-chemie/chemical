@@ -1,0 +1,142 @@
+{
+ "actions": [],
+ "creation": "2019-04-09 12:22:46.688406",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "details",
+  "item_code",
+  "item_name",
+  "bom_no",
+  "price_list_rate",
+  "amount",
+  "quality_inspection",
+  "column_break_5",
+  "quantity",
+  "uom",
+  "batch_yield",
+  "rate",
+  "concentration",
+  "batch_no",
+  "lot_no"
+ ],
+ "fields": [
+  {
+   "fieldname": "details",
+   "fieldtype": "Data",
+   "label": "Details"
+  },
+  {
+   "columns": 3,
+   "fieldname": "item_code",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Item Code",
+   "options": "Item"
+  },
+  {
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "label": "Item Name"
+  },
+  {
+   "fieldname": "price_list_rate",
+   "fieldtype": "Currency",
+   "label": "Price List Rate",
+   "options": "currency",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Amount",
+   "options": "currency",
+   "permlevel": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 1,
+   "default": "1",
+   "fieldname": "quantity",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Quantity"
+  },
+  {
+   "default": "Gram",
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "label": "UOM",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "batch_yield",
+   "fieldtype": "Float",
+   "label": "Yield"
+  },
+  {
+   "columns": 1,
+   "fieldname": "rate",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Rate",
+   "options": "currency",
+   "permlevel": 1,
+   "precision": "2"
+  },
+  {
+   "columns": 1,
+   "default": "100",
+   "fetch_from": "batch_no.concentration",
+   "fieldname": "concentration",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "Concentration"
+  },
+  {
+   "columns": 1,
+   "fieldname": "batch_no",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Batch No",
+   "options": "Batch"
+  },
+  {
+   "columns": 1,
+   "fetch_from": "batch_no.lot_no",
+   "fieldname": "lot_no",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Lot No"
+  },
+  {
+   "fieldname": "bom_no",
+   "fieldtype": "Link",
+   "label": "BOM No",
+   "options": "BOM"
+  },
+  {
+   "fieldname": "quality_inspection",
+   "fieldtype": "Data",
+   "label": "Quality Inspection"
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2024-08-26 17:51:20.927100",
+ "modified_by": "Administrator",
+ "module": "Chemical",
+ "name": "Outward Sample Detail",
+ "owner": "Administrator",
+ "permissions": [],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "ASC",
+ "states": [],
+ "track_changes": 1
+}
