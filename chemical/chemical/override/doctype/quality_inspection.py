@@ -1,7 +1,110 @@
 import frappe
 from erpnext.stock.doctype.quality_inspection.quality_inspection import QualityInspection as _QualityInspection # type: ignore
 
+
+def get_template_details(template):
+	if not template:
+		return []
+
+	fields = [
+		"specification",
+		"value",
+		"acceptance_formula",
+		"numeric",
+		"formula_based_criteria",
+		"min_value",
+		"max_value",
+	]
+	if frappe.get_meta("Item Quality Inspection Parameter").has_field("method"):
+		fields.append("method")
+
+	return frappe.get_all(
+		"Item Quality Inspection Parameter",
+		fields=fields,
+		filters={"parenttype": "Quality Inspection Template", "parent": template},
+		order_by="idx",
+	)
+
+
 class QualityInspection(_QualityInspection):
+	def validate(self):
+		super().validate()
+		self.set_method_in_readings()
+
+	def on_update(self):
+		super().on_update()
+		self.set_method_in_readings(update_db=True)
+
+	@frappe.whitelist()
+	def get_item_specification_details(self):
+		if not self.quality_inspection_template:
+			self.quality_inspection_template = frappe.db.get_value(
+				"Item", self.item_code, "quality_inspection_template"
+			)
+
+		if not self.quality_inspection_template:
+			return
+
+		self.set("readings", [])
+		parameters = get_template_details(self.quality_inspection_template)
+		for d in parameters:
+			child = self.append("readings", {})
+			child.update(d)
+			child.status = "Accepted"
+			child.parameter_group = frappe.get_value(
+				"Quality Inspection Parameter", d.specification, "parameter_group"
+			)
+			if d.get("method"):
+				child.method = d.get("method")
+			elif frappe.get_meta("Quality Inspection Parameter").has_field("method"):
+				method_val = frappe.db.get_value(
+					"Quality Inspection Parameter", d.specification, "method"
+				)
+				if method_val:
+					child.method = method_val
+
+	def set_method_in_readings(self, update_db=False):
+		if not self.quality_inspection_template or not self.readings:
+			return
+
+		template_parameters = get_template_details(self.quality_inspection_template)
+		if not template_parameters:
+			return
+
+		# If counts match by row index, map 1-to-1
+		if len(template_parameters) == len(self.readings):
+			for reading, param in zip(self.readings, template_parameters):
+				method_val = param.get("method")
+				if method_val:
+					reading.method = method_val
+					if update_db and getattr(reading, "name", None):
+						frappe.db.set_value(
+							"Quality Inspection Reading",
+							reading.name,
+							"method",
+							method_val,
+							update_modified=False,
+						)
+		else:
+			# Fallback: match by specification
+			param_map = {}
+			for param in template_parameters:
+				if param.get("method") and param.specification not in param_map:
+					param_map[param.specification] = param.get("method")
+
+			for reading in self.readings:
+				method_val = param_map.get(reading.specification)
+				if method_val:
+					reading.method = method_val
+					if update_db and getattr(reading, "name", None):
+						frappe.db.set_value(
+							"Quality Inspection Reading",
+							reading.name,
+							"method",
+							method_val,
+							update_modified=False,
+						)
+
 	def set_child_row_reference(self):
 		if self.child_row_reference:
 			return
@@ -104,3 +207,4 @@ class QualityInspection(_QualityInspection):
 				""",
 					args,
 				)
+
