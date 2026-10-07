@@ -31,6 +31,7 @@ def on_submit(self, method):
 	add_items_to_work_order_finish_items(self)
 	set_work_order_details(self)
 	set_batch_no_in_quality_inspection(self)
+	update_batch_yield(self)
 
 
 def on_cancel(self, method):
@@ -407,6 +408,22 @@ def cal_target_yield_cons(self):
 				if row.t_warehouse and row.is_finished_item:
 					finished_qty += row.qty
 					concentration = row.concentration
-					row.batch_yield = flt(row.qty / item_map[self.based_on]['qty']) * (row.get("concentration",100) / 100)
+					batch_yield = flt(row.qty / item_map[self.based_on]['qty']) * (row.get("concentration",100) / 100)
+					row.batch_yield = batch_yield
+
+					if row.batch_no:
+						frappe.db.set_value("Batch", row.batch_no, "batch_yield", batch_yield, update_modified=False)
 
 		self.db_set('batch_yield', flt(finished_qty / item_map[self.based_on]['qty']) * (concentration / 100))
+
+
+def update_batch_yield(self):
+    for row in self.items:
+        if (
+            row.t_warehouse
+            and row.is_finished_item
+            and row.batch_no
+            and row.batch_yield
+        ):
+            if frappe.db.exists("Batch", row.batch_no):
+                frappe.db.set_value("Batch",row.batch_no,"batch_yield",row.batch_yield)
