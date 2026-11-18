@@ -24,7 +24,7 @@ from chemical.comments_api import (
 class OutwardSample(Document):
     def before_save(self):
         party_detail = get_party_details(party=self.party, party_type=self.link_to)
-        self.party_name = party_detail.party_name
+        self.party_name = party_detail.get("party_name")
         self.update_outward_sample()
         self.get_master_sample()
         self.get_latest_ball_mill()

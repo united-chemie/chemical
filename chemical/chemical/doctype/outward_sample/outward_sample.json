@@ -16,6 +16,7 @@
   "product_name",
   "item_name",
   "company",
+  "is_internal_sample",
   "link_to",
   "party",
   "against",
@@ -125,8 +126,8 @@
    "fieldname": "link_to",
    "fieldtype": "Link",
    "label": "Link To",
-   "options": "DocType",
-   "reqd": 1
+   "mandatory_depends_on": "eval: !doc.is_internal_sample",
+   "options": "DocType"
   },
   {
    "fetch_from": "against.party",
@@ -135,8 +136,8 @@
    "ignore_user_permissions": 1,
    "in_list_view": 1,
    "label": "Party",
-   "options": "link_to",
-   "reqd": 1
+   "mandatory_depends_on": "eval: !doc.is_internal_sample",
+   "options": "link_to"
   },
   {
    "allow_on_submit": 1,
@@ -333,11 +334,17 @@
    "fieldtype": "Data",
    "label": "Party Alias",
    "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_internal_sample",
+   "fieldtype": "Check",
+   "label": "Is Internal Sample"
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2024-08-12 10:40:37.328221",
+ "modified": "2026-11-18 15:02:36.291297",
  "modified_by": "Administrator",
  "module": "Chemical",
  "name": "Outward Sample",
@@ -399,6 +406,8 @@
    "write": 1
   }
  ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
  "search_fields": "ref_no",
  "sort_field": "modified",
  "sort_order": "ASC",
